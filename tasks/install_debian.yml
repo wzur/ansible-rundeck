@@ -102,7 +102,7 @@
   file:
     path: /etc/init.d/rundeckd
     state: absent
-  when: upstart_config.stat.exists
+  when: upstart_config.stat.exists and ansible_service_mgr != 'systemd'
   tags:
     - rundeck
     - install
